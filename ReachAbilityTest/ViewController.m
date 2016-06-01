@@ -24,10 +24,10 @@
 //    [self tryConfirmReachabilityStatusWithoutUnknown];
     
     /*** 案2 ***/
-    AFNetworkReachabilityStatus status = [AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
-    NSLog(@"status:%ld", status);
+    // KVOでnetworkReachabilityStatusを監視してみる。
+    self.status = [AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
+    NSLog(@"status:%ld", self.status);
     
-//    [self addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
     [[AFNetworkReachabilityManager sharedManager] addObserver:self forKeyPath:@"networkReachabilityStatus" options:NSKeyValueObservingOptionNew context:nil];
     
 }
