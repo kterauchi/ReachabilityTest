@@ -34,7 +34,7 @@
 
 - (void)dealloc
 {
-    [self removeObserver:self forKeyPath:@"status"];
+    [[AFNetworkReachabilityManager sharedManager] removeObserver:self forKeyPath:@"networkReachabilityStatus"];
 }
 
 - (void)didReceiveMemoryWarning {
